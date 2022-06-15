@@ -2,10 +2,10 @@ import axios from "axios";
 import express from "express";
 import cors from "cors";
 import { config } from "dotenv";
-import { dirname } from "path";
 import { fileURLToPath } from "url";
+import * as path from "path";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 config();
 
@@ -14,6 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 app.get("/weather", async (req, res) => {
     const { city } = req.query;
@@ -38,8 +39,8 @@ app.get("/weather", async (req, res) => {
     }
 });
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "../client/public/index.html"));
+app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname + "../client/build/index.html"));
 });
 
 app.listen(PORT, () => {
