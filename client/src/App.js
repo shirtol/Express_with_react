@@ -10,9 +10,7 @@ function App() {
     };
 
     const getCityWeather = async () => {
-        const data = await axios.get(
-            `http://localhost:5000/weather/?city=${term}`
-        );
+        const data = await axios.get(`/weather/?city=${term}`);
         console.log(data.data.current.temp_c);
         setTemp(data.data.current.temp_c);
     };

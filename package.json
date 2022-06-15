@@ -1,0 +1,20 @@
+{
+    "name": "exercise-express_with_react",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node server/app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shirtol/Express_with_react.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/shirtol/Express_with_react/issues"
+    },
+    "homepage": "https://github.com/shirtol/Express_with_react#readme"
+}
