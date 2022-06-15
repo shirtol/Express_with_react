@@ -2,6 +2,10 @@ import axios from "axios";
 import express from "express";
 import cors from "cors";
 import { config } from "dotenv";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 config();
 
@@ -32,6 +36,10 @@ app.get("/weather", async (req, res) => {
         res.status(400).json(err);
         console.log(err);
     }
+});
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "../client/public/index.html"));
 });
 
 app.listen(PORT, () => {
